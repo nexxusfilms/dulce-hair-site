@@ -24,7 +24,7 @@ ao ar como está.
 | ~~2~~ | ~~**Endereço completo e CEP**~~ — preenchido: Estr. do M'Boi Mirim, 2207 — Jardim das Flores, São Paulo/SP, 04905-022 | `index.html` → seção `#localizacao`, rodapé e JSON-LD |
 | ~~3~~ | ~~**Horário de atendimento**~~ — preenchido: terça a sábado, 09h às 18h | `index.html` → seção `#localizacao`, rodapé e JSON-LD |
 | ~~4~~ | ~~**Depoimentos**~~ — três avaliações reais do Google no ar | `index.html` → seção `#depoimentos` |
-| ~~5~~ | ~~**Números da faixa**~~ — +7 anos e 5.000+ atendimentos informados pelo salão; nota 4,9 e 54 avaliações conferem com o Perfil da Empresa | `index.html` → seção `.credbar` |
+| ~~5~~ | ~~**Números da faixa**~~ — +10 anos e 5.000+ atendimentos informados pelo salão; nota 4,9 e 54 avaliações conferem com o Perfil da Empresa | `index.html` → seção `.credbar` |
 | ~~5c~~ | ~~**Serviços de unha**~~ — decisão do salão: manter o texto genérico (cutilagem e acabamento), sem listar técnicas específicas | `index.html` → seção `#servicos` |
 | 11 | ~~**Nome da profissional**~~ — preenchido: Dulce (Dulce Moreira, fundadora), confirmado no planejamento de marketing da Nexxus | `index.html` → seção `#diferenciais` e rodapé |
 | 12 | **Foto da profissional em resolução original** (a atual tem 683px de largura) | `assets/img/equipe.jpg` |
