@@ -134,7 +134,7 @@ manter duas páginas, o topo da página se ajusta à oferta que trouxe a visita 
 | URL de destino | O que muda |
 |---|---|
 | `.../` | Texto padrão, cobrindo as duas ofertas |
-| `.../?oferta=progressiva` | Título, subtítulo, botão e mensagem do WhatsApp voltados à progressiva sem formol |
+| `.../?oferta=progressiva` | Título, subtítulo e botão voltados à progressiva sem formol |
 | `.../?oferta=corte` | Mesma coisa, voltado ao corte |
 
 Exemplo de URL para o anúncio de progressiva no Meta:
@@ -207,8 +207,12 @@ Os identificadores de origem (`data-cta`) são: `header`, `hero`,
 `banda-central`, `localizacao`, `mapa`, `final`, `rodape`, `rodape-link`,
 `flutuante` e `barra-mobile`.
 
-Os botões dentro das seções de progressiva e de corte já abrem a conversa no
-assunto certo, mesmo que a visita não tenha vindo pelo link da campanha.
+Por decisão do salão, a mensagem do WhatsApp é sempre a mesma genérica
+("gostaria de agendar um horário"), em qualquer botão e qualquer oferta —
+citar o serviço de cara fecha a porta cedo demais, antes da conversa
+começar. O que muda por oferta é só o topo da página (título, subtítulo,
+botão) e a origem registrada no rastreamento (`data-cta`); a mensagem em si
+não leva o nome do serviço.
 
 > Para Meta, o ideal é complementar com a **API de Conversões** no lado do
 > servidor — o pixel sozinho perde eventos no iOS.
