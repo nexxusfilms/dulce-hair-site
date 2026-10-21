@@ -15,31 +15,29 @@
      hero se ajusta ao que o anúncio prometeu. Sem o parâmetro, fica o texto
      padrão que está no HTML (que cobre as duas ofertas).
      ------------------------------------------------------------------------ */
+  /* A mensagem do WhatsApp fica de fora de propósito: todo botão abre a
+     conversa com o mesmo convite genérico (ver CFG.mensagem), não importa
+     a oferta ou a seção — declarar o serviço de cara fecha a porta cedo
+     demais, antes da conversa começar. */
   var OFERTAS = {
     progressiva: {
       eyebrow: 'Progressiva sem formol · São Paulo',
       titulo: 'Liso sem cheiro,<br><span class="gold">sem formol.</span>',
       lead: 'Alisamento com ativos registrados na Anvisa e teste de mecha antes de qualquer aplicação. Você escolhe o resultado, do liso total ao só-tirar-o-volume, e leva um cabelo que continua saudável no fim.',
-      cta: 'Quero minha progressiva',
-      mensagem: 'Olá! Vim pelo site da Dulce Hair e quero saber sobre a progressiva sem formol.'
+      cta: 'Quero minha progressiva'
     },
     corte: {
-      eyebrow: 'Corte assinatura · São Paulo',
+      eyebrow: 'Corte personalizado · São Paulo',
       titulo: 'O corte certo<br><span class="gold">muda tudo.</span>',
       lead: 'Na Dulce Hair, o corte é desenhado para o seu rosto, o seu tipo de fio e a sua rotina, não para a foto que viralizou. Você sai daqui com um cabelo que continua bonito na segunda-feira de manhã.',
-      cta: 'Quero agendar meu corte',
-      mensagem: 'Olá! Vim pelo site da Dulce Hair e gostaria de agendar um corte.'
+      cta: 'Quero agendar meu corte'
     }
   };
-
-  var ofertaAtiva = null;
 
   function aplicaOferta(q) {
     var chave = String(q.oferta || '').toLowerCase();
     var o = OFERTAS[chave];
     if (!o) return;
-
-    ofertaAtiva = chave;
 
     var alvos = {
       heroEyebrow: o.eyebrow,
@@ -141,17 +139,13 @@
     if (q.gclid) rastro.push('gclid: ' + q.gclid);
     if (q.fbclid) rastro.push('fbclid: ' + q.fbclid);
 
-    // a mensagem padrão cede lugar à da oferta que trouxe a visita
-    var base = (ofertaAtiva && OFERTAS[ofertaAtiva].mensagem) ||
-      CFG.mensagem || 'Olá! Gostaria de agendar um horário.';
+    // Mesma mensagem genérica em todo botão, venha de onde vier a visita —
+    // ver o comentário acima de OFERTAS.
+    var base = CFG.mensagem || 'Olá! Gostaria de agendar um horário.';
 
     Array.prototype.forEach.call(doc.querySelectorAll('[data-wa]'), function (el) {
       var origem = el.getAttribute('data-cta') || 'site';
-
-      // Botão dentro de uma oferta específica já abre a conversa no assunto
-      // certo, mesmo que a visita não tenha vindo pelo link da campanha.
-      var doBotao = OFERTAS[origem.replace('hero-', '')];
-      var texto = (doBotao ? doBotao.mensagem : base) +
+      var texto = base +
         (rastro.length ? '\n\n(origem: ' + origem + ' · ' + rastro.join(' · ') + ')' : '');
       el.setAttribute('href', 'https://wa.me/' + numero + '?text=' + encodeURIComponent(texto));
       el.setAttribute('target', '_blank');
