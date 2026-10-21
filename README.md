@@ -1,0 +1,378 @@
+# Dulce Hair — Landing Page
+
+Landing page de página única para o salão **Dulce Hair** (São Paulo), construída
+para receber tráfego pago (Meta Ads e Google Ads) com conversão em **agendamento
+pelo WhatsApp**.
+
+As duas ofertas em foco são **progressiva sem formol** e **corte**. A página é
+uma só, mas o topo se adapta ao anúncio que trouxe a visita — ver
+[Uma página, duas campanhas](#uma-página-duas-campanhas).
+
+HTML, CSS e JavaScript puros — sem build, sem framework, sem dependência externa.
+É só subir a pasta em qualquer hospedagem estática.
+
+---
+
+## ⚠️ Antes de subir a campanha — o que precisa ser trocado
+
+A página está completa, mas alguns dados são **placeholders**. Nada disso pode ir
+ao ar como está.
+
+| # | O quê | Onde |
+|---|---|---|
+| ~~1~~ | ~~**Número do WhatsApp**~~ — preenchido: `5511985969542` | `index.html` → bloco `window.DULCE`, no `<head>` |
+| ~~2~~ | ~~**Endereço completo e CEP**~~ — preenchido: Estr. do M'Boi Mirim, 2207 — Jardim das Flores, São Paulo/SP, 04905-022 | `index.html` → seção `#localizacao`, rodapé e JSON-LD |
+| ~~3~~ | ~~**Horário de atendimento**~~ — preenchido: terça a sábado, 09h às 18h | `index.html` → seção `#localizacao`, rodapé e JSON-LD |
+| ~~4~~ | ~~**Depoimentos**~~ — três avaliações reais do Google no ar | `index.html` → seção `#depoimentos` |
+| ~~5~~ | ~~**Números da faixa**~~ — +7 anos e 5.000+ atendimentos informados pelo salão; nota 4,9 e 54 avaliações conferem com o Perfil da Empresa | `index.html` → seção `.credbar` |
+| ~~5c~~ | ~~**Serviços de unha**~~ — decisão do salão: manter o texto genérico (cutilagem e acabamento), sem listar técnicas específicas | `index.html` → seção `#servicos` |
+| 11 | ~~**Nome da profissional**~~ — preenchido: Dulce (Dulce Moreira, fundadora), confirmado no planejamento de marketing da Nexxus | `index.html` → seção `#diferenciais` e rodapé |
+| 12 | **Foto da profissional em resolução original** (a atual tem 683px de largura) | `assets/img/equipe.jpg` |
+| 5b | **Produto da progressiva**: linha/marca usada e número de registro na Anvisa (a duração — até 3 meses — já está confirmada) | `index.html` → seção `#progressiva` e FAQ |
+| ~~6~~ | ~~**Fotos reais**~~ — interior do salão e três trabalhos no ar | `assets/img/` (ver abaixo) |
+| 7 | **Domínio** nas tags `canonical`, `og:url`, `og:image` e no JSON-LD | `index.html` → `<head>` |
+| 8 | **IDs de pixel** (Meta / GA4 / Google Ads) | `index.html` → bloco `window.DULCE` |
+| ~~9~~ | ~~**Endereço do mapa**~~ — preenchido | `index.html` → seção `#localizacao` |
+
+Os pontos que ainda faltam estão marcados no código com o comentário `⚠️`.
+Buscar por `⚠️` no `index.html` encontra todos.
+
+**Faltam:** confirmar o produto da progressiva (5b), o domínio (7), os IDs de
+pixel (8) e a foto da Dulce em resolução original (12).
+
+### Sobre o planejamento de marketing da Nexxus
+
+O plano estratégico da Nexxus (100% orgânico — conteúdo, GMN, parcerias) trouxe
+duas informações que já entraram na página:
+
+- **Identidade visual** — a página migrou para o sistema de marca do plano:
+  Vinho Dulce, Framboesa, Rosé Nude e Dourado Suave sobre fundo creme, com
+  tipografia Fraunces (display) e Poppins (texto). Ver [Decisões técnicas](#decisões-técnicas)
+  e [Identidade visual](#identidade-visual) abaixo.
+- **Correção capilar** — o plano aponta "conserto o que outro errou" como o
+  diferencial mais forte e menos comunicado da Dulce. Entrou como uma terceira
+  especialidade em destaque na seção `#servicos`, ao lado de progressiva e
+  corte.
+- **Dulce Moreira** — o plano confirma que a Dulce é a fundadora e o rosto da
+  marca (posicionamento *founder-led*). O nome entrou na seção de diferenciais
+  e no rodapé.
+
+O restante do plano (calendário editorial, parcerias, GMN, hashtags) é
+execução de conteúdo/redes sociais — não afeta esta LP e vive na entrega
+própria da Nexxus.
+
+**Tráfego pago × orgânico:** o plano da Nexxus é 100% orgânico, mas esta LP
+continua preparada para campanhas pagas (Meta/Google Ads, parâmetro
+`?oferta=`) — os dois não são excludentes. A própria LP também serve como
+destino do link na bio do Instagram e no Perfil da Empresa do Google.
+
+### O bloco do mapa
+
+Sobre o mapa fica um cartão fixo com o nome do salão, o endereço, a nota do
+Google e dois botões: **Como chegar** (abre o Google Maps) e **Chamar Uber**.
+
+O embed do Google não é carregado junto com a página. Quando a seção se aproxima
+da tela, o JavaScript testa se o navegador alcança o Google:
+
+- **Alcança** (caso normal): o mapa é inserido e aparece sozinho, sem clique.
+- **Não alcança** (extensão de privacidade, rede corporativa, prévia): fica o
+  fundo quadriculado com o cartão por cima e um botão "Ver o mapa", que carrega
+  o embed na marra. Assim existe sempre um caminho manual, e ninguém vê a tela
+  de erro cinza que o iframe desenha quando é bloqueado.
+
+De quebra, a página não paga o peso do Google Maps no carregamento inicial, o
+que ajuda no custo por clique.
+
+### Como chegar e Chamar Uber
+
+As coordenadas do salão ficam em `window.DULCE.local` e alimentam os dois
+botões, para nunca apontarem para pontos diferentes:
+
+- **Como chegar** abre a rota no Google Maps já traçada até o ponto exato.
+- **Chamar Uber** usa o link universal (`m.uber.com/ul/`): abre o app com o
+  destino preenchido e cai no site quando o app não está instalado.
+
+Se o ponto mudar, troque só as coordenadas na configuração. Para pegá-las de
+novo: no Google Maps, clique com o botão direito sobre o ponto e o primeiro item
+do menu são as coordenadas.
+
+Os dois cliques são rastreados como conversão, com origem `mapa-rota` e `uber`.
+
+### Sobre as avaliações
+
+A nota (4,9) e o número de avaliações (54) vêm do Perfil da Empresa no Google e
+aparecem em três lugares: o topo (hero), a faixa de credibilidade e o cartão
+do mapa. Se esses números mudarem, atualize os três.
+
+Os três depoimentos são avaliações reais, copiadas na íntegra. **Ao trocar ou
+acrescentar, mantenha o texto exatamente como a cliente escreveu.**
+
+Não há marcação `aggregateRating` nos dados estruturados, e isso é proposital: o
+Google não aceita que um site marque a própria nota vinda de avaliações de
+terceiros, e fazer isso pode render uma ação manual.
+
+### Uma tarefa fora do código
+
+O Perfil da Empresa no Google hoje aponta o campo "site" para
+`sites.appbeleza.com.br`. Quando esta página estiver no ar, troque o link lá —
+é tráfego qualificado e gratuito caindo na página errada.
+
+> **Sobre a alegação "sem formol".** A página afirma que o alisamento é feito com
+> ativos sem formol e com registro na Anvisa. Isso precisa corresponder exatamente
+> ao produto aplicado no salão — tanto o Meta quanto o Google reprovam anúncio
+> cuja promessa a página não sustenta, e a responsabilidade pela alegação é do
+> anunciante. Confirme a linha usada e guarde o registro antes de subir.
+
+---
+
+## Uma página, duas campanhas
+
+Anúncio de progressiva e anúncio de corte falam de coisas diferentes. Em vez de
+manter duas páginas, o topo da página se ajusta à oferta que trouxe a visita —
+é o parâmetro `?oferta=` na URL de destino do anúncio:
+
+| URL de destino | O que muda |
+|---|---|
+| `.../` | Texto padrão, cobrindo as duas ofertas |
+| `.../?oferta=progressiva` | Título, subtítulo, botão e mensagem do WhatsApp voltados à progressiva sem formol |
+| `.../?oferta=corte` | Mesma coisa, voltado ao corte |
+
+Exemplo de URL para o anúncio de progressiva no Meta:
+
+```
+https://www.dulcehair.com.br/?oferta=progressiva&utm_source=meta&utm_medium=cpc&utm_campaign=progressiva-sem-formol
+```
+
+O restante da página (comparativo com formol × sem formol, corte, serviços, FAQ)
+continua igual nos dois casos — quem clicou no anúncio de progressiva encontra a
+seção dela logo abaixo do hero, e quem veio pelo corte encontra a dele em seguida.
+
+Um valor desconhecido em `?oferta=` é ignorado e a página mostra o texto padrão.
+Para criar ou editar as variações, mexa na lista `OFERTAS` no início de
+`assets/js/main.js`.
+
+---
+
+## Configuração
+
+Tudo que a página precisa saber está num único bloco no `<head>` do `index.html`:
+
+```js
+window.DULCE = {
+  whatsapp: '5511985969542',   // DDI + DDD + número, só dígitos
+  mensagem: 'Olá! Vim pelo site da Dulce Hair e gostaria de agendar um horário.',
+  local: {                     // alimenta "Como chegar" e "Chamar Uber"
+    lat: '-23.675781',
+    lng: '-46.752993',
+    nome: 'Dulce Hair',
+    endereco: "Estrada do M'Boi Mirim, 2207 - Jardim das Flores, São Paulo - SP, 04905-022"
+  },
+  metaPixelId: '',             // '123456789012345'
+  ga4Id: '',                   // 'G-XXXXXXXXXX'
+  googleAdsId: '',             // 'AW-XXXXXXXXX'
+  googleAdsConversionLabel: '' // 'abcDEFghIJklMNop'
+};
+```
+
+Os campos de rastreamento vazios simplesmente não carregam nada — a página
+funciona normalmente sem eles.
+
+### Como os links de WhatsApp funcionam
+
+O JavaScript monta o `https://wa.me/...` de todos os botões a partir do número
+configurado e ainda **anexa a origem do clique e os parâmetros da campanha** na
+mensagem. Um lead que veio de um anúncio chega assim:
+
+```
+Olá! Vim pelo site da Dulce Hair e gostaria de agendar um horário.
+
+(origem: hero · source: meta · campaign: cortes-jul · fbclid: IwAR...)
+```
+
+Dá para saber, direto na conversa, qual anúncio e qual botão trouxeram a cliente.
+
+---
+
+## Rastreamento e conversões
+
+Cada clique em botão de WhatsApp dispara, nas plataformas configuradas:
+
+- **Meta Pixel** → evento `Contact`, com o nome do botão em `content_name`
+- **GA4** → evento `generate_lead` (`method: whatsapp`, `origem: <botão>`)
+- **Google Ads** → evento `conversion` (só se `googleAdsConversionLabel` estiver preenchido)
+- **dataLayer** → `clique_whatsapp` (para quem usa Google Tag Manager)
+
+Os identificadores de origem (`data-cta`) são: `header`, `hero`,
+`hero-progressiva`, `hero-corte`, `progressiva`, `corte`, `servicos`,
+`banda-central`, `localizacao`, `mapa`, `final`, `rodape`, `rodape-link`,
+`flutuante` e `barra-mobile`.
+
+Os botões dentro das seções de progressiva e de corte já abrem a conversa no
+assunto certo, mesmo que a visita não tenha vindo pelo link da campanha.
+
+> Para Meta, o ideal é complementar com a **API de Conversões** no lado do
+> servidor — o pixel sozinho perde eventos no iOS.
+
+---
+
+## Imagens
+
+A página usa **fotos reais do salão**, recortadas a partir de sete originais:
+o interior do salão, a profissional com uma cliente, o bob (duas fotos num
+arquivo só, de frente e de perfil), o chanel de bico, a progressiva no ambiente
+real do salão e o tríptico de estúdio da progressiva (três fotos lado a lado
+num arquivo só).
+
+| Arquivo | Proporção | Onde aparece | Origem |
+|---|---|---|---|
+| `hero.jpg` / `.webp` | 1600×1200 | Fundo do topo, no desktop | salão |
+| `hero-mobile.jpg` | 900×1200 | Fundo do topo, no celular | salão |
+| `progressiva.jpg` | 4:5 | Seção da progressiva | tríptico, painel direito |
+| `corte.jpg` | 4:5 | Seção do corte | bob, de frente |
+| `equipe.jpg` | 4:5 | Seção "quem vai cuidar do seu cabelo" | profissional com cliente |
+| `galeria-bob.jpg` | 3:5 | Galeria de resultados | bob, de perfil |
+| `galeria-chanel.jpg` | 3:5 | Galeria de resultados | chanel de bico |
+| `galeria-progressiva.jpg` | 3:4 | Galeria de resultados | progressiva, no salão |
+| `og-image.jpg` | 1200×630 | Compartilhamento (WhatsApp, Facebook) | derivada do hero |
+
+A seção da progressiva usa o tríptico de estúdio (`progressiva-estudio.jpg`),
+foto de estúdio com o fundo na cor da marca — bem acima da qualidade do resto
+das fotos de trabalho. `scripts/recorta-fotos.py` separa os três painéis antes
+de cortar; dois ficaram de sobra (o painel central, olhando direto para a
+câmera, e o esquerdo, mais fechado, mostrando as mãos ajeitando o cabelo) e
+podem entrar em qualquer novo espaço que peça essa mesma sessão de fotos.
+
+Por escolha, a galeria não repete essa mesma sessão de estúdio: usa a foto
+original da progressiva, feita no salão de verdade. Fica coerente com as
+outras duas fotos da galeria (bob e chanel de bico), que também são do salão —
+e dá variedade ao lado do close de estúdio que abre a seção da oferta.
+
+Os arquivos originais (`fotos/*.jpg`) não ficam neste repositório — só os
+recortes finais, em `assets/img/`. Para reprocessar ou trocar um recorte,
+coloque os originais numa pasta `fotos/` ao lado de `scripts/recorta-fotos.py`
+(o próprio script documenta o que cada nome de arquivo precisa ser) e rode-o.
+
+A foto do salão aparece só no topo. As outras aparecem em dois lugares cada,
+sempre em enquadramentos diferentes e distantes um do outro. **Fotos novas
+resolvem isso** — as que fariam mais diferença, em ordem:
+
+1. **Um cacheado e uma coloração**, para a galeria ter tipos de cabelo diferentes.
+2. **Um trabalho de unha**, agora que nail design entrou nos serviços.
+3. **Antes e depois de progressiva**, se quiser reforçar ainda mais essa oferta.
+
+Cada `<picture>` no HTML busca o `.webp` primeiro e cai para o `.jpg`. Se você só
+tiver JPG, apague a linha `<source ... type="image/webp">` correspondente — ou
+converta as fotos para WebP, que carrega mais rápido e ajuda o custo por clique.
+
+O hero usa **duas versões da mesma foto**: uma deitada no desktop e uma em pé no
+celular. Cortar uma foto deitada para uma tela em pé perderia justamente o cabelo.
+Se trocar o hero, gere as duas.
+
+O `scripts/tira-ventilador.py` removeu o ventilador de parede da foto do salão.
+A região é preenchida resolvendo a equação de Laplace com as bordas fixas na
+parede em volta, o que reconstrói o degradê da iluminação sem emenda. Serve para
+qualquer objeto sobre superfície lisa; para fundo com textura ou padrão, não.
+
+O `scripts/generate-textures.py` ficou como reserva: gera fundos abstratos de fios
+em luz dourada para quando faltar foto em algum espaço novo. Os arquivos saem com
+o prefixo `textura-`, então rodar o script nunca sobrescreve uma foto real.
+
+---
+
+## Como rodar localmente
+
+```bash
+python3 -m http.server 8000
+# abra http://localhost:8000
+```
+
+Abrir o `index.html` direto pelo `file://` também funciona, mas o mapa e as
+fontes se comportam melhor servidos por HTTP.
+
+## Como publicar
+
+É um site estático. Sobe em qualquer lugar — Vercel, Netlify, Cloudflare Pages,
+GitHub Pages ou hospedagem tradicional via FTP. Basta enviar a pasta inteira
+(`index.html` + `assets/`) para a raiz do domínio.
+
+Depois de publicar, vale conferir:
+
+- [ ] Todos os botões abrem a conversa certa no WhatsApp (teste pelo celular)
+- [ ] As URLs `?oferta=progressiva` e `?oferta=corte` trocam o topo da página
+- [ ] O pixel dispara (Meta Events Manager / GA4 DebugView / Tag Assistant)
+- [ ] O mapa carrega no endereço correto
+- [ ] A imagem de compartilhamento aparece — teste em
+      [developers.facebook.com/tools/debug](https://developers.facebook.com/tools/debug/)
+- [ ] Nota do PageSpeed Insights no mobile
+
+---
+
+## Estrutura
+
+```
+index.html                    página inteira + configuração + dados estruturados
+assets/
+  css/style.css               design system e todos os estilos
+  js/main.js                  WhatsApp, rastreamento, FAQ, animações
+  fonts/                      Fraunces e Poppins (self-hosted)
+  img/                        logo, hero, serviços, galeria, og-image
+scripts/
+  generate-textures.py        gerador das texturas provisórias
+```
+
+## Identidade visual
+
+A página segue o sistema de marca "Doçura com autoridade" do planejamento da
+Nexxus — fundo creme, blocos vinho na capa (header, hero, CTAs em destaque e
+rodapé), dourado só em detalhe (eyebrows, ícones, números, texto de destaque)
+e rosé nude nos cartões de especialidade. Os tokens de cor e tipografia ficam
+no topo de `assets/css/style.css` (seção "2. Tokens"):
+
+| Token | Cor | Uso |
+|---|---|---|
+| `--surface` | Creme `#f7efea` | fundo predominante da página |
+| `--wine` | Vinho Dulce `#5b1e32` | cor de assinatura — blocos escuros (header, hero, CTAs, rodapé) |
+| `--raspberry` | Framboesa `#b84a63` | acento secundário, estados de hover |
+| `--rose` | Rosé Nude `#e7c5bf` | fundo dos cartões de especialidade |
+| `--gold` | Dourado Suave `#c9a24b` | brilho pontual — nunca em área grande |
+
+Tipografia: **Fraunces** (títulos e destaques) + **Poppins** (texto), ambas
+self-hosted a partir do Google Fonts, extraídas para latin + latin-ext.
+
+## Decisões técnicas
+
+- **Fontes self-hosted.** Nada de Google Fonts em produção: elimina duas
+  conexões externas e melhora o LCP, que é o que mais pesa no custo de tráfego pago.
+- **Sem framework.** A página inteira são três arquivos. Menos JavaScript é menos
+  tempo até o primeiro clique no botão.
+- **Imagem do hero com `preload` e `fetchpriority="high"`**, o resto com
+  `loading="lazy"`.
+- **Dados estruturados** `HairSalon` e `FAQPage` — a página também trabalha para
+  o resultado orgânico e para o perfil do Google.
+- **Acessibilidade**: navegação por teclado, `aria-expanded` no FAQ, link de pular
+  para o conteúdo e respeito a `prefers-reduced-motion`.
+
+## Estrutura da página (e por que ela é assim)
+
+1. **Hero** — promessa + prova social + CTA acima da dobra (muda por campanha)
+2. **Faixa de números** — credibilidade em três segundos
+3. **Progressiva sem formol** — a oferta principal, com o comparativo
+   *com formol × sem formol* que resolve a objeção central, e as pílulas de
+   "indicada para" (cacheado, com luzes, com química…) que dizem à leitora que
+   o serviço serve para o cabelo dela
+4. **Corte** — a segunda oferta, entrando pela dor (framework PAS)
+5. **Serviços** — o resto do cardápio, com as três especialidades no topo
+   (correção capilar, progressiva sem formol e corte)
+6. **Método** — inclui o teste de mecha, que é o que sustenta a promessa da
+   progressiva; quebra a objeção de "e se estragar meu cabelo?"
+7. **Resultados** — prova visual
+8. **Diferenciais** — por que aqui e não no salão da esquina
+9. **Depoimentos** — prova social de terceiros
+10. **CTA intermediário** — escassez real (agenda por horário)
+11. **Localização** — quebra a objeção de distância
+12. **FAQ** — objeções restantes: alisa mesmo? quanto dura? funciona no meu
+    cabelo? posso fazer grávida? e o preço?
+13. **CTA final** — última chamada
+
+O botão de WhatsApp aparece 11 vezes ao longo da rolagem, mais o botão flutuante
+no desktop e a barra fixa no mobile.

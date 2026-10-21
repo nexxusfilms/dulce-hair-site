@@ -1,0 +1,1969 @@
+/* ==========================================================================
+   Dulce Hair — Landing Page
+   Design system + estilos
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Fontes (self-hosted — zero requisição a terceiros = LCP mais rápido)
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('../fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('../fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('../fonts/fraunces-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('../fonts/fraunces-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/poppins-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/poppins-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/poppins-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/poppins-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/poppins-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/poppins-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/poppins-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/poppins-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tokens — identidade "Doçura com autoridade" (planejamento Nexxus)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Superfícies claras — creme é o fundo predominante da marca */
+  --surface: #f7efea;
+  --surface-2: #f1e1d5;
+  --surface-3: #ead2bf;
+
+  /* Texto sobre fundo claro */
+  --ink: #2a2124;
+  --ink-dim: #5c4c50;
+  --muted: #766468;
+
+  /* Vinho Dulce — cor de assinatura, usada em blocos (capa, ofertas, rodapé) */
+  --wine: #5b1e32;
+  --wine-lt: #7c2b45;
+  --wine-dk: #3e1424;
+
+  /* Framboesa — energia, acento secundário e estados de interação */
+  --raspberry: #b84a63;
+  --raspberry-dk: #96324a;
+
+  /* Rosé Nude — acolhimento, fundo de destaque suave */
+  --rose: #e7c5bf;
+
+  /* Dourado Suave — brilho pontual: só em detalhe, nunca em área grande.
+     Duas variantes de leitura: --gold-grad para texto sobre fundo claro
+     (creme), --gold-grad-dark para texto sobre os blocos em vinho — a mesma
+     cor não lê bem nos dois fundos ao mesmo tempo. */
+  --gold: #c9a24b;
+  --gold-lt: #dfc17e;
+  --gold-dk: #765824;
+  --gold-grad: linear-gradient(120deg, #96681a 0%, #7a5416 100%);
+  --gold-grad-dark: linear-gradient(120deg, #f0dcae 0%, #d9af5e 100%);
+
+  /* Texto sobre fundo escuro (header, hero, CTA em destaque, rodapé) */
+  --cream: #f7efea;
+  --cream-dim: rgba(247, 239, 234, 0.74);
+  --muted-dark: rgba(247, 239, 234, 0.68);
+
+  /* Linhas — sobre fundo claro (padrão) */
+  --line: rgba(42, 33, 36, 0.12);
+  --line-strong: rgba(42, 33, 36, 0.22);
+  --line-gold: rgba(201, 162, 75, 0.45);
+
+  /* Linhas — sobre os blocos escuros */
+  --line-on-dark: rgba(247, 239, 234, 0.18);
+
+  /* WhatsApp */
+  --wa: #25d366;
+  --wa-dk: #128c7e;
+
+  /* Tipografia */
+  --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --f-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+
+  /* Ritmo */
+  --wrap: 1200px;
+  --wrap-narrow: 880px;
+  --pad-x: clamp(1.25rem, 5vw, 3rem);
+  --sec-y: clamp(4.5rem, 11vw, 9rem);
+  --radius: 14px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--wine);
+  color: var(--cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+}
+
+/* Grão sutil sobre o fundo — dá textura de impresso premium */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout
+   -------------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+.wrap--narrow {
+  max-width: var(--wrap-narrow);
+}
+
+.section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--sec-y);
+}
+
+.section--tint {
+  background: var(--surface-2);
+}
+
+.section--line {
+  border-top: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   5. Tipografia utilitária
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin: 0 0 1.5rem;
+}
+
+.eyebrow--center {
+  display: block;
+  text-align: center;
+}
+
+/* Sobre os blocos em vinho o --gold-dk (otimizado para fundo claro) perde
+   contraste — troca para a variante clara. */
+.hero .eyebrow,
+.cta-band .eyebrow {
+  color: var(--gold-lt);
+}
+
+.h-xl {
+  font-size: clamp(2.6rem, 7.2vw, 5.25rem);
+}
+
+.h-lg {
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+}
+
+.h-md {
+  font-size: clamp(1.6rem, 3.4vw, 2.35rem);
+}
+
+.h-sm {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  color: var(--ink-dim);
+  line-height: 1.75;
+  max-width: 56ch;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Emphasis de título — o "brilho pontual" dourado da marca, reservado a
+   fragmentos curtos de headline. Não é #gold em CSS por acaso: manter o
+   nome evita reescrever toda marcação que já usa class="gold" no HTML. */
+.gold {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sobre os blocos em vinho (hero, CTAs em destaque) o gradiente claro de
+   --gold-grad desaparece no fundo escuro — troca para a variante clara. */
+.hero .gold,
+.cta-band .gold {
+  background: var(--gold-grad-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.serif-em {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  /* O itálico do Fraunces passa da caixa da linha. Sem essa folga, o recorte
+     do gradiente do .gold corta a ponta do "?" e dos acentos. */
+  padding-block: 0.1em;
+  padding-inline-end: 0.16em;
+}
+
+.center {
+  text-align: center;
+}
+
+.center .lead {
+  margin-inline: auto;
+}
+
+/* Régua ornamental */
+.rule {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, var(--line-gold), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   6. Botões
+   -------------------------------------------------------------------------- */
+.btn {
+  --btn-bg: var(--wine);
+  --btn-color: var(--cream);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  padding: 1.05rem 2.1rem;
+  border-radius: var(--radius);
+  font-family: var(--f-display);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 100%;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+    background-color 0.35s var(--ease), color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+}
+
+.btn--primary {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  box-shadow: 0 10px 28px -14px rgba(42, 33, 36, 0.4);
+}
+
+.btn--primary:hover {
+  background: var(--wine-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -14px rgba(42, 33, 36, 0.5);
+}
+
+/* Sobre os blocos em vinho o botão vinho desapareceria no próprio fundo —
+   inverte para creme sólido, sem recorrer ao dourado em área grande. */
+.site-header .btn--primary,
+.hero .btn--primary,
+.cta-band .btn--primary,
+.mobile-bar .btn--primary,
+.map-card .btn--primary {
+  --btn-bg: var(--cream);
+  --btn-color: var(--wine);
+}
+
+.site-header .btn--primary:hover,
+.hero .btn--primary:hover,
+.cta-band .btn--primary:hover,
+.mobile-bar .btn--primary:hover,
+.map-card .btn--primary:hover {
+  background: var(--rose);
+}
+
+.btn--wa {
+  background: linear-gradient(120deg, #2ee06f, #17b95c 55%, #0f9c55);
+  color: #04220f;
+  box-shadow: 0 10px 34px -14px rgba(37, 211, 102, 0.7);
+}
+
+.btn--wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px -14px rgba(37, 211, 102, 0.85);
+}
+
+/* Usado sobre fundo claro e sobre os blocos escuros (vinho) — por isso a cor
+   e a borda seguem currentColor em vez de um token fixo de um único tema. */
+.btn--ghost {
+  border: 1px solid var(--line-strong);
+  border-color: color-mix(in srgb, currentColor 30%, transparent);
+  color: inherit;
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--raspberry);
+  color: var(--raspberry);
+  transform: translateY(-2px);
+}
+
+.btn--sm {
+  padding: 0.72rem 1.35rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* Em tela estreita, CTA longo quebra a linha em vez de estourar a página */
+@media (max-width: 460px) {
+  .btn {
+    white-space: normal;
+    padding-inline: 1.5rem;
+    line-height: 1.35;
+  }
+}
+
+.btn-note {
+  display: block;
+  margin-top: 0.95rem;
+  font-size: 0.8rem;
+  color: var(--muted-dark);
+  letter-spacing: 0.02em;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.cta-row--center {
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   7. Header — sempre em bloco escuro (vinho), sobre o hero e ao fixar no
+      topo. O logo é claro e só funciona sobre fundo escuro.
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 90;
+  color: var(--cream);
+  transition: background-color 0.4s var(--ease), backdrop-filter 0.4s var(--ease),
+    border-color 0.4s var(--ease), padding 0.4s var(--ease);
+  border-bottom: 1px solid transparent;
+  padding-block: 1.1rem;
+}
+
+.site-header.is-stuck {
+  background: rgba(91, 30, 50, 0.88);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom-color: var(--line-on-dark);
+  padding-block: 0.7rem;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand img {
+  width: auto;
+  height: clamp(38px, 5vw, 52px);
+  transition: height 0.4s var(--ease);
+}
+
+.is-stuck .brand img {
+  height: clamp(32px, 4vw, 42px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+}
+
+.nav a {
+  font-family: var(--f-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  position: relative;
+  padding-block: 0.3rem;
+  transition: color 0.3s var(--ease);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s var(--ease);
+}
+
+.nav a:hover {
+  color: var(--cream);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.header-cta {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .header-cta {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 899px) {
+  .nav {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero — bloco escuro (vinho), a "capa" da marca
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: min(100svh, 900px);
+  display: flex;
+  align-items: center;
+  color: var(--cream);
+  padding-block: clamp(7rem, 16vw, 9rem) clamp(3.5rem, 8vw, 5rem);
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 46%;
+  /* O salão é branco e muito claro. Sem esse rebaixamento forte o texto por
+     cima não se sustenta e a página perde o tom escuro da marca. */
+  filter: brightness(0.42) saturate(0.55) contrast(1.08);
+}
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      100deg,
+      rgba(91, 30, 50, 0.94) 0%,
+      rgba(62, 20, 36, 0.92) 40%,
+      rgba(62, 20, 36, 0.72) 66%,
+      rgba(62, 20, 36, 0.6) 100%
+    ),
+    linear-gradient(to top, var(--wine-dk) 3%, rgba(62, 20, 36, 0.2) 38%, transparent 72%);
+}
+
+/* Brilho dourado atrás do título — o único "brilho pontual" de área que a
+   marca permite, e só aqui, na capa. */
+.hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  left: -12%;
+  width: 46rem;
+  height: 46rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 75, 0.18), transparent 62%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.hero__inner {
+  max-width: 46rem;
+}
+
+.hero h1 {
+  margin-bottom: 1.6rem;
+}
+
+.hero .lead {
+  color: var(--cream-dim);
+  margin-bottom: 2.4rem;
+}
+
+.hero .cta-row {
+  margin-bottom: 2.6rem;
+}
+
+/* Selos de confiança do hero */
+/* Três blocos empilhados lado a lado: o rótulo em cima, o detalhe embaixo.
+   Numa linha só, "Sem formol · produto com registro na Anvisa" quebrava no
+   meio e a leitura se perdia. */
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 2.75rem;
+  padding-top: 1.9rem;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.trust-item__k {
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+}
+
+.trust-item__v {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--muted-dark);
+}
+
+/* As estrelas entram na mesma linha da nota, para os três blocos começarem
+   na mesma altura. */
+.trust-item__k--estrelas {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 0.14em;
+  color: var(--gold);
+}
+
+.stars svg {
+  width: 0.92em;
+  height: 0.92em;
+}
+
+/* Estrela preenchida pela metade — a nota é 4,8, não 5,0 */
+.star-parcial {
+  position: relative;
+  display: inline-block;
+  width: 0.92em;
+  height: 0.92em;
+}
+
+.star-parcial svg {
+  position: absolute;
+  inset: 0;
+}
+
+.star-parcial__vazia {
+  opacity: 0.32;
+}
+
+.star-parcial__cheia {
+  clip-path: inset(0 calc(100% - var(--preenchida, 100%)) 0 0);
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.6rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--f-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted-dark);
+}
+
+.scroll-hint span::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 2.6rem;
+  margin: 0.7rem auto 0;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2.4s var(--ease) infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__bg img {
+    object-position: 50% 15%;
+  }
+  .hero__bg::after {
+    background: linear-gradient(
+        180deg,
+        rgba(91, 30, 50, 0.84) 0%,
+        rgba(91, 30, 50, 0.64) 24%,
+        rgba(62, 20, 36, 0.9) 58%,
+        rgba(62, 20, 36, 0.97) 78%,
+        var(--wine-dk) 94%
+      );
+  }
+  .scroll-hint {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Faixa de credibilidade — fundo claro, números em destaque dourado
+   -------------------------------------------------------------------------- */
+.credbar {
+  position: relative;
+  z-index: 2;
+  border-block: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.credbar__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.credbar__item {
+  padding: 2.15rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.credbar__item:last-child {
+  border-right: 0;
+}
+
+.credbar__num {
+  display: block;
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0.55rem;
+}
+
+.credbar__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .credbar__item:nth-child(2n) {
+    border-right: 0;
+  }
+  .credbar__item:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Bloco de duas colunas (problema / sobre)
+   -------------------------------------------------------------------------- */
+.split {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+  .split--wide-left {
+    grid-template-columns: 1.15fr 1fr;
+  }
+  .split--wide-right {
+    grid-template-columns: 1fr 1.15fr;
+  }
+  .split__media--first {
+    order: -1;
+  }
+}
+
+.figure {
+  position: relative;
+}
+
+.figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  filter: saturate(0.94) contrast(1.03);
+}
+
+/* Recorte em retrato — equilibra a altura da coluna de texto ao lado */
+.figure--portrait img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Moldura dourada deslocada */
+.figure--framed::after {
+  content: '';
+  position: absolute;
+  inset: 1.15rem -1.15rem -1.15rem 1.15rem;
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pain-list {
+  list-style: none;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.05rem;
+}
+
+.pain-list li {
+  position: relative;
+  padding-left: 2.1rem;
+  color: var(--ink-dim);
+  font-size: 0.98rem;
+}
+
+.pain-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 1.15rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.pain-quote {
+  margin-top: 2.4rem;
+  padding: 1.6rem 0 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.62rem);
+  line-height: 1.45;
+  color: var(--wine);
+}
+
+/* --------------------------------------------------------------------------
+   11. Serviços
+   -------------------------------------------------------------------------- */
+.section-head {
+  max-width: 46rem;
+  margin-bottom: clamp(2.75rem, 6vw, 4.25rem);
+}
+
+.section-head.center {
+  margin-inline: auto;
+}
+
+.services {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Quando o total de cartões não fecha em múltiplo de 3, o último sobra
+   sozinho na última linha — aqui ele ganha a linha inteira e centraliza
+   em vez de ficar preso na primeira coluna. */
+@media (min-width: 640px) {
+  .services > :last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+}
+
+.service {
+  position: relative;
+  background: var(--surface-2);
+  padding: 2.5rem 2rem 2.35rem;
+  transition: background-color 0.4s var(--ease);
+  overflow: hidden;
+}
+
+.service::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--gold-grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+
+.service:hover {
+  background: var(--surface-3);
+}
+
+.service:hover::before {
+  transform: scaleX(1);
+}
+
+/* Sem ícone: um fio dourado curto abre o cartão e o nome do serviço lidera.
+   Ícone genérico de linha aqui só somava ruído — nenhum dizia o que era. */
+.service h3 {
+  position: relative;
+  padding-top: 1.75rem;
+  font-size: 1.28rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.75rem;
+}
+
+.service h3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.65;
+  transition: width 0.45s var(--ease), opacity 0.45s var(--ease);
+}
+
+.service:hover h3::before {
+  width: 3.25rem;
+  opacity: 1;
+}
+
+.service--destaque h3::before {
+  opacity: 1;
+}
+
+.service p {
+  font-size: 0.93rem;
+  color: var(--ink-dim);
+  line-height: 1.7;
+}
+
+/* Cartões das especialidades — fundo rosé nude, o acolhimento da marca */
+.service--destaque {
+  background: var(--rose);
+}
+
+.service--destaque:hover {
+  background: var(--rose);
+}
+
+.service--destaque::before {
+  transform: scaleX(1);
+}
+
+.service__tag {
+  display: inline-block;
+  margin-top: 1.3rem;
+  font-family: var(--f-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  border: 1px solid var(--line-gold);
+  border-radius: 100px;
+  padding: 0.36rem 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   11b. Comparativo com formol × sem formol
+   -------------------------------------------------------------------------- */
+.versus {
+  display: grid;
+  gap: 1px;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+@media (min-width: 820px) {
+  .versus {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.versus__col {
+  padding: 2.1rem 1.9rem 2.35rem;
+  background: var(--surface);
+}
+
+.versus__col--good {
+  background: var(--rose);
+  box-shadow: inset 0 2px 0 0 var(--wine);
+}
+
+.versus__title {
+  font-family: var(--f-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.versus__col--good .versus__title {
+  color: var(--wine);
+}
+
+.versus__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.versus__list li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+
+/* × para o lado ruim, ✓ para o nosso */
+.versus__list--bad li::before,
+.versus__list--good li::before {
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.versus__list--bad li::before {
+  content: '×';
+  color: var(--muted);
+}
+
+.versus__list--good li::before {
+  content: '✓';
+  color: var(--wine);
+}
+
+.versus__col--good .versus__list li {
+  color: var(--ink);
+}
+
+/* Pílulas "indicada para" */
+.pills-label {
+  margin: clamp(2.25rem, 4vw, 3rem) 0 1.1rem;
+  font-family: var(--f-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pills li {
+  padding: 0.55rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.pills li:hover {
+  border-color: var(--line-gold);
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   12. Método (etapas)
+   -------------------------------------------------------------------------- */
+.steps {
+  display: grid;
+  gap: clamp(2rem, 4vw, 2.5rem);
+  counter-reset: step;
+}
+
+@media (min-width: 760px) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.step {
+  position: relative;
+  padding-top: 2.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.step::before {
+  counter-increment: step;
+  content: '0' counter(step);
+  position: absolute;
+  top: 1.25rem;
+  left: 0;
+  font-family: var(--f-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-dk);
+}
+
+.step h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 0.65rem;
+}
+
+.step p {
+  font-size: 0.92rem;
+  color: var(--ink-dim);
+}
+
+/* --------------------------------------------------------------------------
+   13. Galeria
+   -------------------------------------------------------------------------- */
+/* Três trabalhos com o mesmo peso: mesma proporção, mesma largura.
+   Antes um deles ocupava o dobro dos outros e a comparação ficava injusta. */
+.gallery {
+  display: grid;
+  gap: clamp(0.75rem, 1.6vw, 1.15rem);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery__item {
+  aspect-ratio: 3 / 4;
+}
+
+/* No celular o terceiro ocupa a linha inteira, em formato mais largo */
+.gallery__item:nth-child(3) {
+  grid-column: span 2;
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery__item:nth-child(3) {
+    grid-column: auto;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--surface-3);
+  margin: 0;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease), filter 0.6s var(--ease);
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.gallery__item picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.06);
+}
+
+/* Legenda sobre a foto — vinho-escuro, não preto neutro, para o selo da
+   marca aparecer até nesse detalhe. */
+.gallery__item figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.6rem 1.15rem 1.05rem;
+  font-family: var(--f-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: linear-gradient(to top, rgba(62, 20, 36, 0.88), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   14. Depoimentos
+   -------------------------------------------------------------------------- */
+.reviews {
+  display: grid;
+  gap: 1.15rem;
+}
+
+@media (min-width: 860px) {
+  .reviews {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding: 2.1rem 1.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.review:hover {
+  border-color: var(--line-gold);
+  transform: translateY(-3px);
+}
+
+.review__text {
+  font-size: 0.98rem;
+  color: var(--ink-dim);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.review__who {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}
+
+.review__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line-gold);
+  font-family: var(--f-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-dk);
+}
+
+.review__name {
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+.review__meta {
+  font-size: 0.74rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   15. Diferenciais
+   -------------------------------------------------------------------------- */
+/* Lista vertical — dá linhas de texto largas o bastante para ler sem quebrar.
+   Numeração em vez de ícone, no mesmo padrão da seção "Método". */
+.perks {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  counter-reset: perk;
+}
+
+.perk {
+  position: relative;
+  padding: 1.7rem 1.9rem 1.7rem 3.6rem;
+  background: var(--surface);
+}
+
+.perk::before {
+  counter-increment: perk;
+  content: '0' counter(perk);
+  position: absolute;
+  top: 1.85rem;
+  left: 1.9rem;
+  font-family: var(--f-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-dk);
+}
+
+.perk h3 {
+  font-size: 1.08rem;
+  font-weight: 400;
+  margin-bottom: 0.45rem;
+}
+
+.perk p {
+  font-size: 0.91rem;
+  color: var(--ink-dim);
+}
+
+/* --------------------------------------------------------------------------
+   16. CTA em destaque — bloco escuro (vinho), como o rodapé e o hero
+   -------------------------------------------------------------------------- */
+.cta-band {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  color: var(--cream);
+  background: var(--wine);
+  border-block: 1px solid var(--line-on-dark);
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 120% at 50% 100%,
+    rgba(201, 162, 75, 0.16),
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.cta-band__inner {
+  position: relative;
+  text-align: center;
+  padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.cta-band h2 {
+  margin-bottom: 1.3rem;
+}
+
+.cta-band .lead {
+  color: var(--cream-dim);
+  margin: 0 auto 2.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   17. Localização
+   -------------------------------------------------------------------------- */
+.info-list {
+  list-style: none;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.info-list li {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.info-list svg {
+  flex: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.28rem;
+  color: var(--gold-dk);
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-list .info-k {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.info-list .info-v {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.info-list .info-v a {
+  border-bottom: 1px solid var(--line-gold);
+  padding-bottom: 1px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.info-list .info-v a:hover {
+  color: var(--wine);
+  border-color: var(--wine);
+}
+
+.map-frame {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-3);
+  min-height: 340px;
+  height: 100%;
+}
+
+.map-frame {
+  min-height: 420px;
+}
+
+.map-frame iframe {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  /* Só uma leve dessaturação: o mapa precisa parecer um mapa. */
+  filter: saturate(0.72) contrast(1.02);
+}
+
+/* Fica atrás do iframe: só aparece se o mapa não carregar */
+.map-frame__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  align-content: end;
+  justify-items: end;
+  padding: 1.5rem;
+  /* textura discreta, para o quadro não ficar um vazio quando o mapa não vem */
+  background-image: radial-gradient(
+      circle at 30% 20%,
+      rgba(201, 162, 75, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: auto, 3.5rem 3.5rem, 3.5rem 3.5rem;
+}
+
+/* Quando o mapa entra, o bloco de trás sai do caminho do teclado */
+.mapa-carregado .map-frame__fallback {
+  display: none;
+}
+
+/* Cartão do salão flutuando sobre o mapa — vidro escuro (vinho), como o
+   resto dos blocos de destaque da marca */
+.map-card {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  max-width: 19rem;
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+  padding: 1.35rem 1.4rem 1.5rem;
+  color: var(--cream);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius);
+  background: rgba(91, 30, 50, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -22px rgba(42, 15, 26, 0.9);
+}
+
+.map-card__nome {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+}
+
+.map-card__end {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cream-dim);
+}
+
+.map-card__nota {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted-dark);
+}
+
+.map-card__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.map-card__acoes .btn {
+  padding-inline: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   18. FAQ
+   -------------------------------------------------------------------------- */
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__q {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.55rem 0;
+  text-align: left;
+  font-family: var(--f-display);
+  font-size: clamp(1.02rem, 1.9vw, 1.18rem);
+  font-weight: 400;
+  color: var(--ink);
+  transition: color 0.3s var(--ease);
+}
+
+.faq__q:hover {
+  color: var(--wine);
+}
+
+.faq__sign {
+  flex: none;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.35rem;
+}
+
+.faq__sign::before,
+.faq__sign::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: var(--gold-dk);
+  transition: transform 0.4s var(--ease);
+}
+
+.faq__sign::after {
+  transform: rotate(90deg);
+}
+
+.faq__item.is-open .faq__sign::after {
+  transform: rotate(0deg);
+}
+
+.faq__a {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.42s var(--ease);
+}
+
+.faq__a p {
+  padding: 0 0 1.6rem;
+  max-width: 62ch;
+  color: var(--ink-dim);
+  font-size: 0.97rem;
+}
+
+/* --------------------------------------------------------------------------
+   19. Rodapé — bloco escuro (vinho), fecha a página no mesmo tom da capa
+   -------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  z-index: 2;
+  color: var(--cream);
+  background: var(--wine-dk);
+  border-top: 1px solid var(--line-on-dark);
+  padding-block: clamp(3rem, 6vw, 4.5rem) 8rem;
+}
+
+@media (min-width: 760px) {
+  .site-footer {
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  }
+}
+
+.site-footer .lead {
+  color: var(--cream-dim);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+.site-footer img.footer-logo {
+  height: 54px;
+  width: auto;
+  margin-bottom: 1.25rem;
+}
+
+.footer-title {
+  font-family: var(--f-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.15rem;
+}
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: var(--cream-dim);
+}
+
+.footer-list a:hover {
+  color: var(--gold-lt);
+}
+
+.socials {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--line-on-dark);
+  border-radius: 50%;
+  color: var(--cream-dim);
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.socials a:hover {
+  color: var(--gold-lt);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.socials svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line-on-dark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  font-size: 0.79rem;
+  color: var(--muted-dark);
+}
+
+/* --------------------------------------------------------------------------
+   20. CTA flutuante / barra mobile
+   -------------------------------------------------------------------------- */
+.wa-float {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 3.65rem;
+  height: 3.65rem;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #2ee06f, #0f9c55);
+  color: #04220f;
+  box-shadow: 0 14px 36px -12px rgba(37, 211, 102, 0.65);
+  transition: transform 0.35s var(--ease);
+}
+
+.wa-float:hover {
+  transform: scale(1.07);
+}
+
+.wa-float svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+@media (min-width: 760px) {
+  .wa-float {
+    display: flex;
+  }
+}
+
+.mobile-bar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 85;
+  display: flex;
+  gap: 0.6rem;
+  color: var(--cream);
+  padding: 0.7rem 0.9rem calc(0.7rem + env(safe-area-inset-bottom));
+  background: rgba(91, 30, 50, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line-on-dark);
+  transform: translateY(110%);
+  transition: transform 0.45s var(--ease);
+}
+
+.mobile-bar.is-visible {
+  transform: translateY(0);
+}
+
+.mobile-bar .btn {
+  flex: 1;
+  padding-inline: 0.8rem;
+}
+
+.mobile-bar .btn--ghost {
+  flex: 0 0 3.2rem;
+  padding-inline: 0;
+}
+
+@media (min-width: 760px) {
+  .mobile-bar {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   21. Animação de entrada
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal[data-delay='1'] {
+  transition-delay: 0.1s;
+}
+.reveal[data-delay='2'] {
+  transition-delay: 0.2s;
+}
+.reveal[data-delay='3'] {
+  transition-delay: 0.3s;
+}
+.reveal[data-delay='4'] {
+  transition-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-hint span::after {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Acessibilidade — link "pular para conteúdo" */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.9rem 1.4rem;
+  background: var(--wine);
+  color: var(--cream);
+  font-size: 0.85rem;
+}
+
+.skip-link:focus {
+  left: 0;
+}
