@@ -47,8 +47,8 @@
     // Para pegar de novo: no Google Maps, clique com o botão direito sobre o
     // ponto e o primeiro item do menu são as coordenadas.
     local: {
-      lat: '-23.675781',
-      lng: '-46.752993',
+      lat: '-23.675972',
+      lng: '-46.752972',
       nome: 'Dulce Hair',
       endereco: "Estrada do M'Boi Mirim, 2207 - Jardim das Flores, São Paulo - SP, 04905-022"
     },
@@ -625,9 +625,12 @@
          depois de confirmar que o navegador alcança o Google. Assim ninguém
          vê a página de erro cinza que o embed desenha quando é bloqueado —
          no lugar dela fica o endereço com o botão de rota.
-         ⚠️ Ao trocar o endereço, troque nos dois links abaixo. -->
+         O endereço em texto some aqui de propósito: o Google geocodificava
+         "Estrada do M'Boi Mirim, 2207" para o lado errado da avenida. A
+         coordenada exata (mesma de window.DULCE.local) não erra isso.
+         ⚠️ Ao trocar o ponto, troque também em window.DULCE.local. -->
     <div class="map-frame reveal" data-delay="1"
-         data-mapa-src="https://www.google.com/maps?q=Estrada+do+M%27Boi+Mirim%2C+2207+-+Jardim+das+Flores%2C+S%C3%A3o+Paulo+-+SP%2C+04905-022&output=embed">
+         data-mapa-src="https://www.google.com/maps?q=-23.675972,-46.752972&output=embed">
       <div class="map-frame__fallback">
         <button type="button" class="btn btn--ghost btn--sm" data-mapa-abrir>Ver o mapa</button>
       </div>

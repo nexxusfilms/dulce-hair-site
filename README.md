@@ -83,6 +83,12 @@ da tela, o JavaScript testa se o navegador alcança o Google:
 De quebra, a página não paga o peso do Google Maps no carregamento inicial, o
 que ajuda no custo por clique.
 
+O embed usa a coordenada exata (`?q=lat,lng`), não o endereço em texto —
+descobrimos que o Google geocodificava "Estrada do M'Boi Mirim, 2207" para o
+lado errado da avenida. Se o ponto mudar, atualize a coordenada no atributo
+`data-mapa-src` (seção `#localizacao` do `index.html`) junto com
+`window.DULCE.local`, abaixo.
+
 ### Como chegar e Chamar Uber
 
 As coordenadas do salão ficam em `window.DULCE.local` e alimentam os dois
@@ -162,8 +168,8 @@ window.DULCE = {
   whatsapp: '5511985969542',   // DDI + DDD + número, só dígitos
   mensagem: 'Olá! Vim pelo site da Dulce Hair e gostaria de agendar um horário.',
   local: {                     // alimenta "Como chegar" e "Chamar Uber"
-    lat: '-23.675781',
-    lng: '-46.752993',
+    lat: '-23.675972',
+    lng: '-46.752972',
     nome: 'Dulce Hair',
     endereco: "Estrada do M'Boi Mirim, 2207 - Jardim das Flores, São Paulo - SP, 04905-022"
   },
