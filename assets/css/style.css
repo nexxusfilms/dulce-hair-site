@@ -658,9 +658,9 @@ body::before {
   height: 100%;
   object-fit: cover;
   object-position: 62% 46%;
-  /* O salão é branco e muito claro. Sem esse rebaixamento forte o texto por
-     cima não se sustenta e a página perde o tom escuro da marca. */
-  filter: brightness(0.42) saturate(0.55) contrast(1.08);
+  /* O salão é branco e muito claro — ainda precisa de um rebaixamento pro
+     texto se sustentar, mas mais leve que o original para a foto aparecer. */
+  filter: brightness(0.68) saturate(0.85) contrast(1.05);
 }
 
 .hero__bg::after {
@@ -669,12 +669,12 @@ body::before {
   inset: 0;
   background: linear-gradient(
       100deg,
-      rgba(91, 30, 50, 0.94) 0%,
-      rgba(62, 20, 36, 0.92) 40%,
-      rgba(62, 20, 36, 0.72) 66%,
-      rgba(62, 20, 36, 0.6) 100%
+      rgba(91, 30, 50, 0.72) 0%,
+      rgba(62, 20, 36, 0.66) 40%,
+      rgba(62, 20, 36, 0.46) 66%,
+      rgba(62, 20, 36, 0.32) 100%
     ),
-    linear-gradient(to top, var(--wine-dk) 3%, rgba(62, 20, 36, 0.2) 38%, transparent 72%);
+    linear-gradient(to top, var(--wine-dk) 0%, rgba(62, 20, 36, 0.1) 30%, transparent 60%);
 }
 
 /* Brilho dourado atrás do título — o único "brilho pontual" de área que a
@@ -831,11 +831,11 @@ body::before {
   .hero__bg::after {
     background: linear-gradient(
         180deg,
-        rgba(91, 30, 50, 0.84) 0%,
-        rgba(91, 30, 50, 0.64) 24%,
-        rgba(62, 20, 36, 0.9) 58%,
-        rgba(62, 20, 36, 0.97) 78%,
-        var(--wine-dk) 94%
+        rgba(91, 30, 50, 0.6) 0%,
+        rgba(91, 30, 50, 0.42) 24%,
+        rgba(62, 20, 36, 0.62) 58%,
+        rgba(62, 20, 36, 0.74) 78%,
+        rgba(62, 20, 36, 0.88) 94%
       );
   }
   .scroll-hint {
