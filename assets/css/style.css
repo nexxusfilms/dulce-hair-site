@@ -653,6 +653,16 @@ body::before {
   z-index: -2;
 }
 
+/* Sem isso o <picture> (altura automática, por padrão) não dá ao <img> uma
+   altura definida para o height:100% dele resolver contra — a imagem então
+   para na própria altura natural, curta demais para um hero que cresce com
+   o texto, e deixa uma faixa sem foto por baixo. */
+.hero__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero__bg img {
   width: 100%;
   height: 100%;
